@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hệ thống quản lý gửi xe</title>
+  <link rel="stylesheet" href="css3.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Hệ thống quản lý gửi xe</h1>
+    </header>
+
+    <nav>
+      <button class="nav-btn active" data-section="send">Gửi xe</button>
+      <button class="nav-btn" data-section="return">Trả xe</button>
+      <button class="nav-btn" data-section="report">Báo cáo</button>
+      <button class="nav-btn" data-section="check">Kiểm tra xe</button>
+    </nav>
+
+    <main>
+      <section id="send" class="content-section active">
+        <h2>Gửi xe</h2>
+        <div class="form-group">
+          <label for="licenseSend">Biển số xe:</label>
+          <input type="text" id="licenseSend" placeholder="Nhập biển số xe">
+        </div>
+        <div class="form-group">
+          <label>Loại vé:</label>
+          <div class="ticket-options">
+            <label class="ticket-option">
+              <input type="radio" name="ticketType" value="daily"> Vé ngày
+            </label>
+            <label class="ticket-option">
+              <input type="radio" name="ticketType" value="monthly"> Vé tháng
+            </label>
+          </div>
+        </div>
+        <div id="dailyDateContainer" class="form-group hidden">
+          <label for="dailyDate">Ngày áp dụng:</label>
+          <input type="date" id="dailyDate">
+        </div>
+        <button class="submit-btn" id="checkInBtn">Xác nhận gửi</button>
+      </section>
+
+      <section id="return" class="content-section">
+        <h2>Trả xe</h2>
+        <div class="form-group">
+          <label for="licenseReturn">Biển số xe:</label>
+          <input type="text" id="licenseReturn" placeholder="Nhập biển số xe">
+        </div>
+        <button class="submit-btn" id="returnBtn">Kiểm tra</button>
+        <div id="returnInfo" class="result-box hidden">
+          <p><strong>Giờ vào:</strong> <span id="returnCheckInTime"></span></p>
+          <p><strong>Thời gian gửi:</strong> <span id="returnDuration"></span> giờ</p>
+          <p><strong>Phí:</strong> <span id="returnFee"></span></p>
+          <button class="confirm-btn" id="confirmReturnBtn">Xác nhận trả xe</button>
+        </div>
+      </section>
+
+      <section id="report" class="content-section">
+        <h2>Báo cáo xe đã gửi</h2>
+        <div class="table-container">
+          <table id="historyTable">
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="check" class="content-section">
+        <h2>Kiểm tra xe trong bãi</h2>
+        <div class="form-group">
+          <label for="licenseCheck">Biển số xe:</label>
+          <input type="text" id="licenseCheck" placeholder="Nhập biển số xe (để trống để xem tất cả)">
+        </div>
+        <button class="submit-btn" id="checkVehicleBtn">Kiểm tra</button>
+        <div id="checkResult" class="result-box"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="jv.js"></script>
+</body>
+</html>
